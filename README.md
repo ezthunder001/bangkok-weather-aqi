@@ -1,3 +1,18 @@
+# Bangkok Weather & AQI Dashboard
+
+Daily weather + PM2.5 dashboard for Bangkok with an ML forecast
+(HistGradientBoosting) and a radiative-cooling monthly model.
+
+## Run
+    pip install -r requirements.txt
+    streamlit run app.py
+
+## Structure
+- src/fetch_data.py — pulls weather + AQI data
+- src/ml_forecast.py — trains PM2.5 forecast model
+- src/rc_monthly_model.py — radiative-cooling monthly estimates
+- app.py — Streamlit dashboard
+
 # Bangkok Weather & AQI Analytics Dashboard
 
 Interactive Streamlit dashboard analyzing **7+ years of Bangkok weather** and
