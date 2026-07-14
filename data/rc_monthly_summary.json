@@ -1,0 +1,111 @@
+{
+  "climatology": [
+    {
+      "month": 1,
+      "t_max": 31.99,
+      "t_min": 22.26,
+      "rh": 60.63,
+      "cloud": 45.4,
+      "solar_mj": 18.37
+    },
+    {
+      "month": 2,
+      "t_max": 32.91,
+      "t_min": 24.14,
+      "rh": 68.49,
+      "cloud": 39.77,
+      "solar_mj": 19.14
+    },
+    {
+      "month": 3,
+      "t_max": 33.75,
+      "t_min": 26.03,
+      "rh": 70.74,
+      "cloud": 42.71,
+      "solar_mj": 20.74
+    },
+    {
+      "month": 4,
+      "t_max": 34.49,
+      "t_min": 27.17,
+      "rh": 71.74,
+      "cloud": 59.25,
+      "solar_mj": 21.49
+    },
+    {
+      "month": 5,
+      "t_max": 33.66,
+      "t_min": 26.65,
+      "rh": 75.98,
+      "cloud": 82.85,
+      "solar_mj": 20.17
+    },
+    {
+      "month": 6,
+      "t_max": 32.68,
+      "t_min": 26.16,
+      "rh": 77.37,
+      "cloud": 89.57,
+      "solar_mj": 18.88
+    },
+    {
+      "month": 7,
+      "t_max": 31.66,
+      "t_min": 25.66,
+      "rh": 80.44,
+      "cloud": 91.91,
+      "solar_mj": 17.04
+    },
+    {
+      "month": 8,
+      "t_max": 31.59,
+      "t_min": 25.45,
+      "rh": 80.77,
+      "cloud": 92.72,
+      "solar_mj": 17.29
+    },
+    {
+      "month": 9,
+      "t_max": 30.91,
+      "t_min": 25.05,
+      "rh": 83.75,
+      "cloud": 90.97,
+      "solar_mj": 16.61
+    },
+    {
+      "month": 10,
+      "t_max": 30.92,
+      "t_min": 24.37,
+      "rh": 82.07,
+      "cloud": 83.87,
+      "solar_mj": 17.03
+    },
+    {
+      "month": 11,
+      "t_max": 31.34,
+      "t_min": 23.67,
+      "rh": 72.39,
+      "cloud": 68.39,
+      "solar_mj": 17.4
+    },
+    {
+      "month": 12,
+      "t_max": 31.51,
+      "t_min": 22.43,
+      "rh": 61.94,
+      "cloud": 51.4,
+      "solar_mj": 17.74
+    }
+  ],
+  "cenosphere_night_P_cool_range_Wm2": [
+    12.3,
+    25.8
+  ],
+  "cenosphere_mean_humidity_correction_night": 0.344,
+  "best_night_month": 1,
+  "worst_night_month": 8,
+  "cenosphere_day_dT_range_C": [
+    -6.17,
+    -4.38
+  ]
+}
