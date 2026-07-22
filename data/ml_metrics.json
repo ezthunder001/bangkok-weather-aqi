@@ -1,104 +1,104 @@
 {
   "task": "next-day PM2.5 (\u00b5g/m\u00b3) + VALID-test-day probability",
-  "train_days": 1112,
-  "test_days": 279,
-  "test_period": "2025-09-02 \u2192 2026-06-07",
+  "train_days": 1145,
+  "test_days": 287,
+  "test_period": "2025-10-05 \u2192 2026-07-18",
   "regression": {
     "persistence": {
-      "mae": 5.96,
-      "rmse": 8.25,
-      "r2": 0.487
+      "mae": 5.61,
+      "rmse": 7.82,
+      "r2": 0.55
     },
     "ridge__lags_only": {
-      "mae": 6.32,
-      "rmse": 8.11,
-      "r2": 0.504
+      "mae": 5.96,
+      "rmse": 7.76,
+      "r2": 0.558
     },
     "random_forest__lags_only": {
-      "mae": 6.07,
-      "rmse": 8.31,
-      "r2": 0.479
+      "mae": 5.61,
+      "rmse": 7.9,
+      "r2": 0.541
     },
     "hist_gradient_boosting__lags_only": {
-      "mae": 6.39,
-      "rmse": 8.92,
-      "r2": 0.4
+      "mae": 5.59,
+      "rmse": 8.01,
+      "r2": 0.528
     },
     "ridge__with_forecast_weather": {
-      "mae": 6.97,
-      "rmse": 8.79,
-      "r2": 0.417
+      "mae": 6.71,
+      "rmse": 8.5,
+      "r2": 0.469
     },
     "random_forest__with_forecast_weather": {
-      "mae": 6.43,
-      "rmse": 8.91,
-      "r2": 0.402
+      "mae": 5.92,
+      "rmse": 8.35,
+      "r2": 0.488
     },
     "hist_gradient_boosting__with_forecast_weather": {
-      "mae": 7.14,
-      "rmse": 9.33,
-      "r2": 0.344
+      "mae": 6.32,
+      "rmse": 8.69,
+      "r2": 0.445
     }
   },
-  "best_model": "random_forest__lags_only",
-  "skill_vs_persistence_pct": -1.8,
+  "best_model": "hist_gradient_boosting__lags_only",
+  "skill_vs_persistence_pct": 0.4,
   "classification": {
     "model": {
-      "f1": 0.89,
-      "roc_auc": 0.99,
-      "accuracy": 0.928
+      "f1": 0.896,
+      "roc_auc": 0.987,
+      "accuracy": 0.934
     },
     "persistence": {
-      "f1": 0.615,
+      "f1": 0.609,
       "accuracy": 0.749
     },
-    "valid_rate_test": 0.326
+    "valid_rate_test": 0.321
   },
   "feature_importance": [
     {
       "feature": "pm2_5",
-      "importance": 6.005
-    },
-    {
-      "feature": "temperature_2m_mean",
-      "importance": 0.356
-    },
-    {
-      "feature": "doy_cos",
-      "importance": 0.314
-    },
-    {
-      "feature": "pm25_lag1",
-      "importance": 0.222
-    },
-    {
-      "feature": "shortwave_radiation_sum",
-      "importance": 0.193
+      "importance": 5.577
     },
     {
       "feature": "doy_sin",
-      "importance": 0.115
+      "importance": 0.63
     },
     {
-      "feature": "cloud_cover_mean",
-      "importance": 0.104
-    },
-    {
-      "feature": "pm25_roll7",
-      "importance": 0.067
-    },
-    {
-      "feature": "precipitation_sum",
-      "importance": 0.064
+      "feature": "temperature_2m_mean",
+      "importance": 0.424
     },
     {
       "feature": "temperature_2m_max",
-      "importance": 0.056
+      "importance": 0.317
+    },
+    {
+      "feature": "doy_cos",
+      "importance": 0.256
+    },
+    {
+      "feature": "pm25_lag1",
+      "importance": 0.24
+    },
+    {
+      "feature": "pm25_roll14",
+      "importance": 0.2
+    },
+    {
+      "feature": "pm25_roll3",
+      "importance": 0.115
+    },
+    {
+      "feature": "shortwave_radiation_sum",
+      "importance": 0.107
+    },
+    {
+      "feature": "wind_speed_10m_max",
+      "importance": 0.085
     }
   ],
   "tomorrow": {
-    "from_date": "2026-06-07",
-    "pm25_pred": 5.0,
-    "valid_probability": 0.0
+    "from_date": "2026-07-18",
+    "pm25_pred": 15.1,
+    "valid_probability": 0.001
   }
 }

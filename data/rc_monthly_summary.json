@@ -2,106 +2,106 @@
   "climatology": [
     {
       "month": 1,
-      "t_max": 31.99,
-      "t_min": 22.26,
+      "t_max": 32.02,
+      "t_min": 22.29,
       "rh": 60.63,
-      "cloud": 45.4,
+      "cloud": 45.42,
       "solar_mj": 18.37
     },
     {
       "month": 2,
-      "t_max": 32.91,
-      "t_min": 24.14,
+      "t_max": 32.93,
+      "t_min": 24.16,
       "rh": 68.49,
-      "cloud": 39.77,
+      "cloud": 39.81,
       "solar_mj": 19.14
     },
     {
       "month": 3,
-      "t_max": 33.75,
-      "t_min": 26.03,
+      "t_max": 33.77,
+      "t_min": 26.06,
       "rh": 70.74,
-      "cloud": 42.71,
+      "cloud": 42.73,
       "solar_mj": 20.74
     },
     {
       "month": 4,
-      "t_max": 34.49,
-      "t_min": 27.17,
+      "t_max": 34.51,
+      "t_min": 27.2,
       "rh": 71.74,
       "cloud": 59.25,
       "solar_mj": 21.49
     },
     {
       "month": 5,
-      "t_max": 33.66,
-      "t_min": 26.65,
+      "t_max": 33.68,
+      "t_min": 26.68,
       "rh": 75.98,
-      "cloud": 82.85,
+      "cloud": 82.87,
       "solar_mj": 20.17
     },
     {
       "month": 6,
-      "t_max": 32.68,
-      "t_min": 26.16,
-      "rh": 77.37,
-      "cloud": 89.57,
-      "solar_mj": 18.88
+      "t_max": 32.81,
+      "t_min": 26.19,
+      "rh": 77.4,
+      "cloud": 89.3,
+      "solar_mj": 19.0
     },
     {
       "month": 7,
-      "t_max": 31.66,
-      "t_min": 25.66,
-      "rh": 80.44,
-      "cloud": 91.91,
-      "solar_mj": 17.04
+      "t_max": 31.79,
+      "t_min": 25.74,
+      "rh": 80.0,
+      "cloud": 91.6,
+      "solar_mj": 17.0
     },
     {
       "month": 8,
-      "t_max": 31.59,
-      "t_min": 25.45,
+      "t_max": 31.62,
+      "t_min": 25.47,
       "rh": 80.77,
-      "cloud": 92.72,
+      "cloud": 92.75,
       "solar_mj": 17.29
     },
     {
       "month": 9,
-      "t_max": 30.91,
-      "t_min": 25.05,
+      "t_max": 30.94,
+      "t_min": 25.07,
       "rh": 83.75,
-      "cloud": 90.97,
+      "cloud": 90.98,
       "solar_mj": 16.61
     },
     {
       "month": 10,
-      "t_max": 30.92,
-      "t_min": 24.37,
+      "t_max": 30.94,
+      "t_min": 24.4,
       "rh": 82.07,
-      "cloud": 83.87,
+      "cloud": 83.88,
       "solar_mj": 17.03
     },
     {
       "month": 11,
-      "t_max": 31.34,
-      "t_min": 23.67,
+      "t_max": 31.36,
+      "t_min": 23.7,
       "rh": 72.39,
-      "cloud": 68.39,
+      "cloud": 68.42,
       "solar_mj": 17.4
     },
     {
       "month": 12,
-      "t_max": 31.51,
-      "t_min": 22.43,
+      "t_max": 31.52,
+      "t_min": 22.46,
       "rh": 61.94,
-      "cloud": 51.4,
+      "cloud": 51.41,
       "solar_mj": 17.74
     }
   ],
   "cenosphere_night_P_cool_range_Wm2": [
-    12.3,
+    12.2,
     25.8
   ],
-  "cenosphere_mean_humidity_correction_night": 0.344,
+  "cenosphere_mean_humidity_correction_night": 0.345,
   "best_night_month": 1,
   "worst_night_month": 8,
   "cenosphere_day_dT_range_C": [

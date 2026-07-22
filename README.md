@@ -67,12 +67,12 @@ Refresh data anytime with `python src/fetch_data.py --force`.
 ## ML — next-day forecasting (src/ml_forecast.py)
 
 Two supervised tasks, evaluated honestly (chronological 80/20 split, test =
-Sep 2025 → Jun 2026, always benchmarked against persistence):
+Oct 2025 → Jul 2026, always benchmarked against persistence):
 
 | Task | Best result | Baseline | Verdict |
 |------|-------------|----------|---------|
-| Next-day PM2.5 regression | MAE 6.07 µg/m³ (random forest) | **5.96 (persistence)** | Persistence wins at h+1 — daily PM2.5 autocorrelation is brutal; even adding next-day weather doesn't beat it |
-| "Is tomorrow a VALID RC-test day?" classification | **AUC 0.99, F1 0.89** (HistGradientBoosting + forecast-weather features) | F1 0.62 (naive: tomorrow = today) | Big skill — this is the useful product (go/no-go for scheduling outdoor tests) |
+| Next-day PM2.5 regression | MAE 5.59 µg/m³ (HistGradientBoosting, lags only) | **5.61 (persistence)** | Persistence still wins at h+1 — daily PM2.5 autocorrelation is brutal; adding next-day weather forecast features only hurts (MAE 6.32) |
+| "Is tomorrow a VALID RC-test day?" classification | **AUC 0.99, F1 0.90** (HistGradientBoosting) | F1 0.61 (naive: tomorrow = today) | Big skill — this is the useful product (go/no-go for scheduling outdoor tests) |
 
 Key lesson demonstrated: *always compare against a strong naive baseline* —
 three model families and 21 features cannot beat `tomorrow = today` on MAE,

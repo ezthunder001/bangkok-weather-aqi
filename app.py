@@ -111,7 +111,7 @@ with tab_climate:
             name="Mean (14-d roll)", line=dict(width=2, color="#E8674C"),
         ))
         fig.update_layout(title="Temperature (°C)", height=380, margin=dict(t=40, b=10))
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width='stretch')
 
     with c2:
         monthly_rain = (
@@ -126,7 +126,7 @@ with tab_climate:
         )
         fig.update_layout(height=380, margin=dict(t=40, b=10), xaxis_title=None,
                           yaxis_title=None)
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width='stretch')
 
     c3, c4 = st.columns(2)
     with c3:
@@ -139,7 +139,7 @@ with tab_climate:
                       annotation_text="RC humidity penalty threshold")
         fig.update_layout(height=340, margin=dict(t=40, b=10), xaxis_title=None,
                           yaxis_title=None)
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width='stretch')
     with c4:
         fig = px.box(
             view, x="month_name", y="temperature_2m_mean", color="season",
@@ -149,7 +149,7 @@ with tab_climate:
         )
         fig.update_layout(height=340, margin=dict(t=40, b=10), xaxis_title=None,
                           yaxis_title=None)
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width='stretch')
 
 # ------------------------------------------------------------- air-quality tab
 with tab_aq:
@@ -171,7 +171,7 @@ with tab_aq:
         fig.add_hline(y=THAI_PM25_24H, line_dash="dot", line_color="#D14545",
                       annotation_text="Thai NAAQS (37.5)")
         fig.update_layout(title="PM2.5 (µg/m³)", height=400, margin=dict(t=40, b=10))
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width='stretch')
 
         c1, c2 = st.columns(2)
         with c1:
@@ -185,7 +185,7 @@ with tab_aq:
             )
             fig.update_layout(height=360, margin=dict(t=40, b=10), xaxis_title=None,
                               yaxis_title=None)
-            st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, width='stretch')
         with c2:
             pivot = aq.pivot_table(index="year", columns="month", values="pm2_5",
                                    aggfunc="mean")
@@ -195,7 +195,7 @@ with tab_aq:
                 labels=dict(x="Month", y="Year", color="µg/m³"),
             )
             fig.update_layout(height=360, margin=dict(t=40, b=10))
-            st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, width='stretch')
 
         exceed = aq.groupby("year").agg(
             days=("pm2_5", "size"),
@@ -204,7 +204,7 @@ with tab_aq:
         )
         exceed["% over WHO"] = (100 * exceed["over_who"] / exceed["days"]).round(1)
         exceed["% over Thai NAAQS"] = (100 * exceed["over_thai"] / exceed["days"]).round(1)
-        st.dataframe(exceed, use_container_width=True)
+        st.dataframe(exceed, width='stretch')
 
 # ------------------------------------------------------------- RC planner tab
 with tab_rc:
@@ -228,7 +228,7 @@ with tab_rc:
         fig.add_hline(y=40, line_dash="dot", line_color="#E0A82E")
         fig.update_traces(marker=dict(size=5, opacity=0.7))
         fig.update_layout(height=380, margin=dict(t=40, b=10))
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width='stretch')
 
         c1, c2 = st.columns(2)
         with c1:
@@ -247,7 +247,7 @@ with tab_rc:
             )
             fig.update_layout(height=360, margin=dict(t=40, b=10), xaxis_title=None,
                               yaxis_title="% of days VALID", coloraxis_showscale=False)
-            st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, width='stretch')
         with c2:
             fig = px.scatter(
                 rc, x="pm2_5", y="shortwave_radiation_sum", color="test_class",
@@ -258,7 +258,7 @@ with tab_rc:
             )
             fig.update_traces(marker=dict(size=5, opacity=0.6))
             fig.update_layout(height=360, margin=dict(t=40, b=10))
-            st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, width='stretch')
 
         best = monthly.sort_values("pct_valid", ascending=False).head(3)
         st.success(
@@ -313,7 +313,7 @@ with tab_ml:
                                                                color="#B4B2A9")))
         fig.update_layout(title="Test set — next-day PM2.5 (µg/m³)", height=380,
                           margin=dict(t=40, b=10))
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width='stretch')
 
         c1, c2 = st.columns(2)
         with c1:
@@ -322,7 +322,7 @@ with tab_ml:
                          orientation="h", title="Permutation importance (MAE, test set)",
                          color_discrete_sequence=["#7F77DD"])
             fig.update_layout(height=380, margin=dict(t=40, b=10), yaxis_title=None)
-            st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, width='stretch')
         with c2:
             fig = go.Figure()
             fig.add_trace(go.Scatter(
@@ -338,7 +338,7 @@ with tab_ml:
             fig.add_hline(y=0.5, line_dash="dot", line_color="#E0A82E")
             fig.update_layout(title="Go/no-go probability vs reality", height=380,
                               margin=dict(t=40, b=10), yaxis_range=[0, 1.08])
-            st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, width='stretch')
 
         t = m["tomorrow"]
         st.success(
@@ -382,7 +382,7 @@ with tab_model:
             )
             fig.update_layout(height=380, margin=dict(t=40, b=10),
                               xaxis=dict(dtick=1), legend_title=None)
-            st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, width='stretch')
         with c2:
             day = sel[sel["scenario"] == "day"]
             fig = px.line(
@@ -393,7 +393,7 @@ with tab_model:
             fig.add_hline(y=0, line_dash="dot", line_color="#888780")
             fig.update_layout(height=380, margin=dict(t=40, b=10),
                               xaxis=dict(dtick=1), legend_title=None)
-            st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, width='stretch')
 
         c3, c4 = st.columns(2)
         with c3:
@@ -405,7 +405,7 @@ with tab_model:
             fig.add_hline(y=0, line_dash="dot", line_color="#888780")
             fig.update_layout(height=380, margin=dict(t=40, b=10),
                               xaxis=dict(dtick=1), legend_title=None)
-            st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, width='stretch')
         with c4:
             bm = st.selectbox("Budget month", range(1, 13), index=0,
                               format_func=lambda m: f"{m:02d}")
@@ -428,7 +428,7 @@ with tab_model:
                 margin=dict(t=40, b=10),
                 legend=dict(orientation="h", y=-0.15),
             )
-            st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(fig, width='stretch')
             st.caption(
                 "Every coating radiates a near-identical ~22–31 W/m² — the humid "
                 "sky caps the radiative term. Daytime ranking is decided almost "
@@ -449,7 +449,7 @@ with tab_model:
         )
 
         with st.expander("Full model table"):
-            st.dataframe(rcm, use_container_width=True, height=400)
+            st.dataframe(rcm, width='stretch', height=400)
             st.download_button(
                 "Download model CSV", rcm.to_csv(index=False).encode(),
                 file_name="rc_monthly_model.csv", mime="text/csv",
@@ -457,7 +457,7 @@ with tab_model:
 
 # ------------------------------------------------------------- data tab
 with tab_data:
-    st.dataframe(view, use_container_width=True, height=480)
+    st.dataframe(view, width='stretch', height=480)
     st.download_button(
         "Download filtered CSV", view.to_csv(index=False).encode(),
         file_name="bangkok_weather_aqi.csv", mime="text/csv",
