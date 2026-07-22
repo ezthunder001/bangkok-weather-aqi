@@ -49,11 +49,11 @@ EPS_SKY_OUTSIDE = 0.97       # atmosphere ~opaque outside the window
 DAYLIGHT_HOURS = 12.0
 
 # Solar reflectance + emissivity inside/outside the 8-13 µm window.
-# Nominal literature values for a mid-tier white-composite selective coating.
+# Nominal literature values, mid-tier selective coating.
 MATERIALS = {
     "Bare concrete": {"R_solar": 0.35, "eps_win": 0.90, "eps_out": 0.90},
     "White TiO2 paint": {"R_solar": 0.80, "eps_win": 0.90, "eps_out": 0.90},
-    "Composite selective coating": {"R_solar": 0.88, "eps_win": 0.92, "eps_out": 0.90},
+    "Coating C": {"R_solar": 0.88, "eps_win": 0.92, "eps_out": 0.90},
     "PVDF-HFP porous": {"R_solar": 0.96, "eps_win": 0.97, "eps_out": 0.95},
     "BaSO4 ultra-white": {"R_solar": 0.976, "eps_win": 0.96, "eps_out": 0.95},
     # Matched pair — identical R_solar and window emissivity, differing only
@@ -169,19 +169,19 @@ def main() -> None:
     out.to_csv(tmp, index=False)
     tmp.replace(OUT_CSV)
 
-    ceno = "Composite selective coating"
-    night = out.query("material == @ceno and scenario == 'night'")
-    day = out.query("material == @ceno and scenario == 'day'")
+    coating_c = "Coating C"
+    night = out.query("material == @coating_c and scenario == 'night'")
+    day = out.query("material == @coating_c and scenario == 'day'")
     summary = {
         "climatology": clim.reset_index().to_dict("records"),
-        "composite_night_P_cool_range_Wm2":
+        "coating_c_night_P_cool_range_Wm2":
             [float(night["P_cool_at_ambient_Wm2"].min()),
              float(night["P_cool_at_ambient_Wm2"].max())],
-        "composite_mean_humidity_correction_night":
+        "coating_c_mean_humidity_correction_night":
             round(float(night["humidity_correction"].astype(float).mean()), 3),
         "best_night_month": int(night.loc[night["P_cool_at_ambient_Wm2"].idxmax(), "month"]),
         "worst_night_month": int(night.loc[night["P_cool_at_ambient_Wm2"].idxmin(), "month"]),
-        "composite_day_dT_range_C":
+        "coating_c_day_dT_range_C":
             [float(day["dT_eq_C"].min()), float(day["dT_eq_C"].max())],
     }
     tmp = OUT_JSON.with_suffix(".json.tmp")
@@ -196,8 +196,8 @@ def main() -> None:
     print("\nDay equilibrium dT (°C, + = below ambient):")
     print(out[out.scenario == "day"].pivot(
         index="month", columns="material", values="dT_eq_C").to_string())
-    print(f"\nMean humidity correction (night, composite): "
-          f"{summary['composite_mean_humidity_correction_night']}")
+    print(f"\nMean humidity correction (night, Coating C): "
+          f"{summary['coating_c_mean_humidity_correction_night']}")
 
 
 if __name__ == "__main__":

@@ -20,7 +20,7 @@ RC_MODEL_CSV = Path(__file__).parent / "data" / "rc_monthly_model.csv"
 MATERIAL_COLORS = {
     "Bare concrete": "#888780",
     "White TiO2 paint": "#E0A82E",
-    "Composite selective coating": "#D85A30",
+    "Coating C": "#D85A30",
     "PVDF-HFP porous": "#378ADD",
     "BaSO4 ultra-white": "#7F77DD",
     "Ideal selective emitter": "#1D9E75",
@@ -435,14 +435,14 @@ with tab_model:
                 "entirely by solar reflectance."
             )
 
-        ceno = rcm.query(
-            "material == 'Composite selective coating' and scenario == 'night'"
+        coating_c = rcm.query(
+            "material == 'Coating C' and scenario == 'night'"
         )
-        hc = ceno["humidity_correction"].astype(float).mean()
+        hc = coating_c["humidity_correction"].astype(float).mean()
         st.warning(
             f"**Bangkok humidity penalty (mandatory check):** night cooling for "
-            f"the composite coating is {ceno['P_cool_at_ambient_Wm2'].min():.0f}–"
-            f"{ceno['P_cool_at_ambient_Wm2'].max():.0f} W/m² across the year — "
+            f"Coating C is {coating_c['P_cool_at_ambient_Wm2'].min():.0f}–"
+            f"{coating_c['P_cool_at_ambient_Wm2'].max():.0f} W/m² across the year — "
             f"only **{hc:.0%} of dry-climate performance** (RH 30 %, clear). "
             "The humid-sky window closure also erases the selective emitter's "
             "advantage: broadband emitters beat it in every month."

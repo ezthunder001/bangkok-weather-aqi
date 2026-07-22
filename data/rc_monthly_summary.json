@@ -97,14 +97,14 @@
       "solar_mj": 17.74
     }
   ],
-  "composite_night_P_cool_range_Wm2": [
+  "coating_c_night_P_cool_range_Wm2": [
     12.2,
     25.8
   ],
-  "composite_mean_humidity_correction_night": 0.345,
+  "coating_c_mean_humidity_correction_night": 0.345,
   "best_night_month": 1,
   "worst_night_month": 8,
-  "composite_day_dT_range_C": [
+  "coating_c_day_dT_range_C": [
     -6.17,
     -4.38
   ]
