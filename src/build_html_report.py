@@ -27,7 +27,7 @@ OUT = OUT_DIR / "rc-monthly-model-dashboard.html"
 COLORS = {
     "Bare concrete": "#888780",
     "White TiO2 paint": "#E0A82E",
-    "Cenosphere-acrylic (EGAT-C)": "#D85A30",
+    "Composite selective coating": "#D85A30",
     "PVDF-HFP porous": "#378ADD",
     "BaSO4 ultra-white": "#7F77DD",
     "Ideal selective emitter": "#1D9E75",
@@ -71,8 +71,8 @@ def main():
         "clim": clim,
         "rows": rcm.to_dict("records"),
         "kpi": {
-            "nightRange": summary["cenosphere_night_P_cool_range_Wm2"],
-            "hc": summary["cenosphere_mean_humidity_correction_night"],
+            "nightRange": summary["composite_night_P_cool_range_Wm2"],
+            "hc": summary["composite_mean_humidity_correction_night"],
         },
     }
     data_json = json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
@@ -213,7 +213,7 @@ document.getElementById("hcPct").textContent = Math.round(D.kpi.hc*100)+" %";
 
 const fmt = (v,d=1)=>Number(v).toFixed(d);
 document.getElementById("kpis").innerHTML = [
- ["Night cooling (cenosphere)", fmt(D.kpi.nightRange[0],0)+"–"+fmt(D.kpi.nightRange[1],0)+" W/m²","best Dec–Mar, worst Jul–Sep"],
+ ["Night cooling (composite)", fmt(D.kpi.nightRange[0],0)+"–"+fmt(D.kpi.nightRange[1],0)+" W/m²","best Dec–Mar, worst Jul–Sep"],
  ["vs dry climate", Math.round(D.kpi.hc*100)+" %","of night cooling power"],
  ["Noon subambient", "R ≳ 0.95","BaSO4-class only, Nov–Apr"],
  ["Selectivity cost", "−8 W/m²","broadband beats selective 24/24"],

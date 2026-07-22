@@ -103,7 +103,7 @@ Headline predictions (Bangkok, 2019–2026 climatology):
 | Humidity penalty | Bangkok night cooling ≈ **34 %** of dry-climate (RH 30 %) performance |
 | Selective vs broadband | Selective emitter **loses** in every month (humid sky closes the window) |
 | Daytime subambient threshold | Only R_solar ≳ 0.95 (BaSO₄) stays below ambient at noon, and only Nov–Apr |
-| Cenosphere-acrylic at noon | 4–6 °C above ambient — but **27–32 °C cooler than bare concrete** |
+| Composite selective coating at noon | 4–6 °C above ambient — but **27–32 °C cooler than bare concrete** |
 
 ```bash
 python src/rc_monthly_model.py   # writes data/rc_monthly_model.csv

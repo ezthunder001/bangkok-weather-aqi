@@ -30,7 +30,7 @@ WHO, THAI = 15.0, 37.5
 RC_COLORS = {
     "Bare concrete": "#888780",
     "White TiO2 paint": "#E0A82E",
-    "Cenosphere-acrylic (EGAT-C)": "#D85A30",
+    "Composite selective coating": "#D85A30",
     "PVDF-HFP porous": "#378ADD",
     "BaSO4 ultra-white": "#7F77DD",
     "Ideal selective emitter": "#1D9E75",
@@ -132,8 +132,8 @@ def main():
                        "data": series("day", "dT_eq_C")},
         },
         "budget": budget,
-        "hc": rsum["cenosphere_mean_humidity_correction_night"],
-        "nightRange": rsum["cenosphere_night_P_cool_range_Wm2"],
+        "hc": rsum["composite_mean_humidity_correction_night"],
+        "nightRange": rsum["composite_night_P_cool_range_Wm2"],
     }
 
     last = df.dropna(subset=["pm2_5"]).iloc[-1]

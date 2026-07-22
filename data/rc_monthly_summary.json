@@ -97,14 +97,14 @@
       "solar_mj": 17.74
     }
   ],
-  "cenosphere_night_P_cool_range_Wm2": [
+  "composite_night_P_cool_range_Wm2": [
     12.2,
     25.8
   ],
-  "cenosphere_mean_humidity_correction_night": 0.345,
+  "composite_mean_humidity_correction_night": 0.345,
   "best_night_month": 1,
   "worst_night_month": 8,
-  "cenosphere_day_dT_range_C": [
+  "composite_day_dT_range_C": [
     -6.17,
     -4.38
   ]
